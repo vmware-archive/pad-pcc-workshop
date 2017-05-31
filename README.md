@@ -2,7 +2,7 @@
 
 ## Getting Started with PCC Client
 
-######Step 1: Creating PCC Client project
+###### Step 1: Creating PCC Client project
 
 1. Create a spring boot from Spring Initilizer or through Spring Tool Suite IDE
 
@@ -34,7 +34,7 @@
 </dependency>
 ```
 
-######Step 2: Creation of PCC client cache using cloud connectors
+###### Step 2: Creation of PCC client cache using cloud connectors
 
 1. Configure PCC client cache with PCC native serializer (PDX). We will create an instance of GemfireServiceConnectorConfig for configuring PCC Client
 
