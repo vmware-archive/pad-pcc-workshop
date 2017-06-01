@@ -22,28 +22,27 @@ public class PCCClientCloudConfig {
 
 	public ServiceConnectorConfig createGemfireConnectorConfig() {
 
-        GemfireServiceConnectorConfig gemfireConfig = new GemfireServiceConnectorConfig();
-        gemfireConfig.setPoolSubscriptionEnabled(true);
-        gemfireConfig.setPdxSerializer(new ReflectionBasedAutoSerializer(".*"));
-        gemfireConfig.setPdxReadSerialized(false);
+		GemfireServiceConnectorConfig gemfireConfig = new GemfireServiceConnectorConfig();
+		gemfireConfig.setPoolSubscriptionEnabled(true);
+		gemfireConfig.setPdxSerializer(new ReflectionBasedAutoSerializer(".*"));
+		gemfireConfig.setPdxReadSerialized(false);
 
-        return gemfireConfig;
-    }
+		return gemfireConfig;
+	}
 
-    public ClientCache getGemfireClientCache() throws Exception {
+	public ClientCache getGemfireClientCache() throws Exception {
 
 		Cloud cloud = new CloudFactory().getCloud();
-		ClientCache clientCache = cloud.getSingletonServiceConnector
-				(ClientCache.class,  createGemfireConnectorConfig());
+		ClientCache clientCache = cloud.getSingletonServiceConnector(ClientCache.class, createGemfireConnectorConfig());
 
-        return clientCache;
-    }
-
+		return clientCache;
+	}
 
 	@Bean
 	public Region<String, String> customerRegion(@Autowired ClientCache clientCache) {
 
-		ClientRegionFactory<String, String> customerRegionFactory = clientCache.createClientRegionFactory(ClientRegionShortcut.PROXY);
+		ClientRegionFactory<String, String> customerRegionFactory = clientCache
+				.createClientRegionFactory(ClientRegionShortcut.PROXY);
 		Region<String, String> customerRegion = customerRegionFactory.create("Customer");
 
 		return customerRegion;
