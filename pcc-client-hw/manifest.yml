@@ -1,0 +1,7 @@
+---
+applications:
+- name: pcc-client
+  random-route: false
+  path: target/pcc-client-0.0.1-SNAPSHOT.jar
+  services:
+  - pcc-dev-cluster

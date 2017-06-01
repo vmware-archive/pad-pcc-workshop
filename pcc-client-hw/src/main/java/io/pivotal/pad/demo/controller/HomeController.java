@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
+	// Autowire PCC client region
 	@Autowired
 	Region<String, String> customerRegion;
 
