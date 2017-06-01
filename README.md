@@ -2,9 +2,9 @@
 
 ## Getting Started with PCC Client
 
-###### Step 1: Creating PCC Client project
+###### Step 1: Create PCC Client project
 
-1. Create a spring boot from Spring Initilizer or through Spring Tool Suite IDE
+1. Create a spring boot app from Spring Initilizer or through Spring Tool Suite IDE
 
 	http://start.spring.io
 
