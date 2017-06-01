@@ -1,4 +1,4 @@
-package io.pivotal.GemFire.Demo;
+package io.pivotal.pad.pcc.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringDataGemFireClientApplicationTests {
+public class PCCClientApplicationTests {
 
 	@Test
 	public void contextLoads() {
