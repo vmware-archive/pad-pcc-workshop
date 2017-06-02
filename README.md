@@ -10,7 +10,7 @@
 
 2. Add GemFire and Web project dependencies 
 
- Note: We will be using Spring-data-gemfire (SDG) project for connecting to PCC clients. Also, We need to use SDG M3 release for connecting to PCC cluster. Please refer to pom.xml for more details.
+ Note: We will be using Spring-data-gemfire (SDG) project for connecting to PCC cluster. Also, We need to use SDG M3 release for connecting to PCC cluster. Please refer to pom.xml for more details.
 
 
 3. Add the below Spring cloud GemFire connector dependencies. This will simplify retrieving PCC connection information and creating PCC Client Cache.
