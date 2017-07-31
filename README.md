@@ -56,8 +56,8 @@ ClientCache clientCache = cloud.getSingletonServiceConnector(ClientCache.class, 
 ###### Step 3: Create a client side region bean with name `Customer`
 
 ```
-ClientRegionFactory<String, PdxInstance> customerRegionFactory = clientCache.createClientRegionFactory(ClientRegionShortcut.PROXY);
-Region<String, PdxInstance> customerRegion = customerRegionFactory.create("Customer");
+ClientRegionFactory<String, String> customerRegionFactory = clientCache.createClientRegionFactory(ClientRegionShortcut.PROXY);
+Region<String, String> customerRegion = customerRegionFactory.create("Customer");
 ```
 
 Note: For complete implementation, please refer to `PCCClientCloudConfig.java`
