@@ -1,5 +1,11 @@
 # pad-pcc-workshop
 
+## Prerequisites
+
+1. PCF Org/Space with Pivotal CloudCache
+2. GFSH cli
+   ( https://gemfire.docs.pivotal.io/geode/tools_modules/gfsh/starting_gfsh.html )
+
 ## Getting Started with PCC Client
 
 ###### Step 1: Create PCC Client project
