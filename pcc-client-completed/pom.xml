@@ -33,7 +33,31 @@
 		<dependency>
 	        <groupId>org.springframework.data</groupId>
 	        <artifactId>spring-data-gemfire</artifactId>
-	        <version>2.0.0.M3</version>
+	        <version>2.0.1.RELEASE</version>
+	        <exclusions>
+				<exclusion>
+					<groupId>io.pivotal.gemfire</groupId>
+	      			<artifactId>geode-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.pivotal.gemfire</groupId>
+	      			<artifactId>geode-wan</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.pivotal.gemfire</groupId>
+	      			<artifactId>geode-cq</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.pivotal.gemfire</groupId>
+	      			<artifactId>geode-lucene</artifactId>
+				</exclusion>
+	        </exclusions>
+    	</dependency>
+
+    	<dependency>
+    		<groupId>io.pivotal.gemfire</groupId>
+	      	<artifactId>geode-core</artifactId>
+	      	<version>9.0.4</version>
     	</dependency>
 
 		<dependency>

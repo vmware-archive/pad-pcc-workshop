@@ -12,6 +12,8 @@ import org.springframework.cloud.service.ServiceConnectorConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.gemfire.cache.GemfireCacheManager;
+import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
 
 import io.pivotal.spring.cloud.service.gemfire.GemfireServiceConnectorConfig;
 
@@ -44,8 +46,16 @@ public class PCCClientCloudConfig {
 		ClientRegionFactory<String, String> customerRegionFactory = clientCache
 				.createClientRegionFactory(ClientRegionShortcut.PROXY);
 		Region<String, String> customerRegion = customerRegionFactory.create("Customer");
+        return customerRegion;
+	}
 
-		return customerRegion;
+	@Bean(name="cacheManager")
+	public GemfireCacheManager createGemfireCacheManager(@Autowired ClientCache clientCache) {
+
+		GemfireCacheManager gemfireCacheManager = new GemfireCacheManager();
+		gemfireCacheManager.setCache(clientCache);
+
+		return gemfireCacheManager;
 	}
 
 }

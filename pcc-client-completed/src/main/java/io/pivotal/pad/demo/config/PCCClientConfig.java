@@ -2,8 +2,10 @@ package io.pivotal.pad.demo.config;
 
 import java.util.Properties;
 
+import org.apache.geode.cache.Region;
 import org.apache.geode.cache.client.ClientCache;
 import org.apache.geode.cache.client.ClientCacheFactory;
+import org.apache.geode.cache.client.ClientRegionFactory;
 import org.apache.geode.cache.client.ClientRegionShortcut;
 import org.apache.geode.pdx.PdxSerializer;
 import org.apache.geode.pdx.ReflectionBasedAutoSerializer;
@@ -13,7 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
+import org.springframework.data.gemfire.cache.GemfireCacheManager;
 import org.springframework.data.gemfire.config.xml.GemfireConstants;
 
 @Profile("local")
@@ -50,17 +52,25 @@ public class PCCClientConfig {
         return gemfireCache;
     }
 
-	@Bean
-    public ClientRegionFactoryBean<String, String> customerRegion (@Autowired ClientCache gemfireCache) {
+    @Bean
+    public Region<String, String> customerRegionBean(@Autowired ClientCache clientCache) {
 
-        ClientRegionFactoryBean<String, String> customerRegion =
-        		new ClientRegionFactoryBean<String, String>();
+    	ClientRegionFactory<String, String> customerRegionFactory = clientCache
+				.createClientRegionFactory(ClientRegionShortcut.PROXY);
+		Region<String, String> customerRegion = customerRegionFactory.create("Customer");
 
-        customerRegion.setCache(gemfireCache);
-        customerRegion.setClose(false);
-        customerRegion.setShortcut(ClientRegionShortcut.PROXY);
-        customerRegion.setLookupEnabled(true);
-        return customerRegion;
+		return customerRegion;
     }
+
+
+
+	@Bean(name="cacheManager")
+	public GemfireCacheManager createGemfireCacheManager(@Autowired ClientCache gemfireCache) {
+
+		GemfireCacheManager gemfireCacheManager = new GemfireCacheManager();
+		gemfireCacheManager.setCache(gemfireCache);
+
+		return gemfireCacheManager;
+	}
 
 }

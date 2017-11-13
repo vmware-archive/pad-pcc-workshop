@@ -14,14 +14,13 @@ public class HomeController {
 	@Autowired
 	Region<String, String> customerRegion;
 
-
 	@RequestMapping("/")
 	public String home() {
 		return "Customer Search Service -- Available APIs: <br/>"
 				+ "<br/>"
-				+ "GET /addcustomer?key={email}&value={name}  - insert a value <br/>"
-				+ "GET /getcustomer?key={email}               - get specific value <br/>"
-				+ "GET /deletecustomer?key={email}            - delete a value <br/>";
+				+ "GET /addcustomer?email={id}&value={name}  - insert a value <br/>"
+				+ "GET /getcustomer?email={id}               - get specific value <br/>"
+				+ "GET /deletecustomer?email={id}            - delete a value <br/>";
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/addcustomer")
@@ -53,8 +52,5 @@ public class HomeController {
 		customerRegion.destroy(email);
 		return "customer data successfully destroyed.";
 	}
-
-
-
 
 }
