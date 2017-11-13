@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -31,34 +31,34 @@
 		</dependency>
 
 		<dependency>
-	        <groupId>org.springframework.data</groupId>
-	        <artifactId>spring-data-gemfire</artifactId>
-	        <version>2.0.1.RELEASE</version>
-	        <exclusions>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-gemfire</artifactId>
+			<version>2.0.1.RELEASE</version>
+			<exclusions>
 				<exclusion>
 					<groupId>io.pivotal.gemfire</groupId>
-	      			<artifactId>geode-core</artifactId>
+					<artifactId>geode-core</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>io.pivotal.gemfire</groupId>
-	      			<artifactId>geode-wan</artifactId>
+					<artifactId>geode-wan</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>io.pivotal.gemfire</groupId>
-	      			<artifactId>geode-cq</artifactId>
+					<artifactId>geode-cq</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>io.pivotal.gemfire</groupId>
-	      			<artifactId>geode-lucene</artifactId>
+					<artifactId>geode-lucene</artifactId>
 				</exclusion>
-	        </exclusions>
-    	</dependency>
+			</exclusions>
+		</dependency>
 
-    	<dependency>
-    		<groupId>io.pivotal.gemfire</groupId>
-	      	<artifactId>geode-core</artifactId>
-	      	<version>9.0.4</version>
-    	</dependency>
+		<dependency>
+			<groupId>io.pivotal.gemfire</groupId>
+			<artifactId>geode-core</artifactId>
+			<version>9.0.4</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -89,22 +89,22 @@
 	</dependencies>
 
 	<repositories>
-	    <repository>
-	        <id>spring-milestones</id>
-	        <name>Spring Milestones</name>
-	        <url>https://repo.spring.io/libs-milestone</url>
-	        <snapshots>
-	            <enabled>false</enabled>
-	        </snapshots>
-	    </repository>
-	     <repository>
-	        <id>spring-releases</id>
-	        <name>Spring Releases</name>
-	        <url>http://repo.spring.io/release</url>
-	        <snapshots>
-	            <enabled>false</enabled>
-	        </snapshots>
-	    </repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/libs-milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-releases</id>
+			<name>Spring Releases</name>
+			<url>http://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 
 	<build>
