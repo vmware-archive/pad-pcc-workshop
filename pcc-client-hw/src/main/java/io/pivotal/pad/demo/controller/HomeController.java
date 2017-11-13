@@ -1,7 +1,5 @@
 package io.pivotal.pad.demo.controller;
 
-import org.apache.geode.cache.Region;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,10 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
-
-	// Autowire PCC client region
-	@Autowired
-	Region<String, String> customerRegion;
 
 
 	@RequestMapping("/")
@@ -31,8 +25,8 @@ public class HomeController {
 	String email, @RequestParam(value = "value", required = true) String name)  {
 
 
-		customerRegion.put(email, name);
-		return "customer data successfully inserted into cache.";
+
+		return "";
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/getcustomer")
@@ -41,8 +35,7 @@ public class HomeController {
 					String email)  {
 
 
-		String name = customerRegion.get(email);
-		return "customer name:" + name;
+		return "";
 	}
 
 	@RequestMapping(method = RequestMethod.GET, path = "/deletecustomer")
@@ -51,11 +44,8 @@ public class HomeController {
 					String email)  {
 
 
-		customerRegion.destroy(email);
-		return "customer data successfully destroyed.";
+		return "";
 	}
-
-
 
 
 }
